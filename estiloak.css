@@ -7,14 +7,43 @@
     margin-right: 10px;
     color: black;
     padding-left: 5px
+    center;
 }  
 
 .left {
     flex: 0.25;
-    background-color: lightgreen;
+    
 }
 
 .right {
     flex: 0.75;
-    background-color: lightblue;
+    
 } 
+
+#image {
+    width: 100%;
+    height: auto;
+}
+
+.form-group {
+    margin-left: 10px;
+    margin-top: 40px;
+}
+
+.buttons {
+    margin-left: 10px;
+    margin-top: 40px;
+}
+
+input[type="text"] {
+    width: 60%;
+}
+
+#isbnLabel {
+    color: red;
+    margin-left: 150px;
+}
+
+
+    
+

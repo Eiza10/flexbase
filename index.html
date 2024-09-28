@@ -7,14 +7,39 @@
 
 	<div class="flex-container">
 
-	  <div class="flex left" id = "images" >
-	    <script src = /js/liburuak.js></script>
+	  <div class="flex left" >
+			<img  id="image" >
 	  </div>
 
 	  <div class="flex right">
-	    Flex Column 2
-	  </div>
+		<div class="form-container"></div>
+			<div class="form-group">
+				<label>Izenburua:</label>
+				<input type="text" id="izenburua">
+			</div>
 
+			<div class="form-group">
+				<label>Egilea:</label>
+				<input type="text" id="egilea">
+			</div>
+
+			<div class="form-group">
+				<label>ISBN:</label>
+				<input type="text" id="isbn">
+				<button id="btnS">Bilatu</button><br>
+				<label id="isbnLabel">ISBN hori duen libururik ez dago datu-basean</label>
+			</div>
+
+			<div class="form-group">
+				<label>Data:</label>
+				<input type="text" id="data">
+			</div>
+
+			<div class="buttons">
+				<button id="btnL">&lt;&lt;</button>
+				<button id="btnR">&gt;&gt;</button>
+			</div>
+		
 	</div>
 
     </body>

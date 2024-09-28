@@ -1,3 +1,4 @@
+window.onload = () => {
 let liburuak = [
     {
       "isbn": "1617293563",
@@ -32,20 +33,73 @@ let liburuak = [
     }
   ]
 
-  const BASE = "https://covers.openlibrary.org/b/id/";
-  let irudiak = [];
+  let i = 0;
 
+  // Liburuen irudiak
+  const BASE = "https://covers.openlibrary.org/b/id/";
+  let irudi_markoa = document.querySelector("#image");
+  
+  // Liburuen datuak
+  let izenburua = document.querySelector("#izenburua");
+  let egilea = document.querySelector("#egilea");
+  let data = document.querySelector("#data");
+  let isbn = document.querySelector("#isbn");
+
+  let btnL = document.querySelector("#btnL");
+  let btnR = document.querySelector("#btnR");
+  let btnS = document.querySelector("#btnS");
+
+  let isbnLabel = document.querySelector("#isbnLabel");
+  isbnLabel.style.display = "none";
+
+  // Irudiak lortu
+    let irudiak = [];
+    let irudia = "";
     liburuak.forEach(liburu => {
-        irudiak.push(BASE+liburu.filename);
+        irudia = BASE + liburu.filename;
+        irudiak.push(irudia);
   });
 
-  function irudiakSartu() {
-    const container = document.getElementById('images'); // Asegúrate de tener un contenedor con este ID en tu HTML
-    irudiak.forEach(url => {
-        const img = document.createElement('img');
-        img.src = url;
-        container.appendChild(img);
-    });
-}
+  // Liburu baten datuak ezarri
+  function setLiburua(){
+    irudi_markoa.src = irudiak[i];
+    izenburua.value = liburuak[i].izenburua;
+    egilea.value = liburuak[i].egilea;
+    data.value = liburuak[i].data;
+    isbn.value = liburuak[i].isbn;
+    }
+    
+    setLiburua();
 
-irudiakSartu();
+    // Ezkerreko botoia
+    btnL.addEventListener("click", function(){
+        if(i != 0){   
+          i--;
+          setLiburua();   
+       }
+     })
+
+    // Eskuineko botoia
+    btnR.addEventListener("click", function(){
+        if(i != liburuak.length-1){
+          i++;
+          setLiburua();     
+       }
+    })
+
+    // Bilatu botoia
+    btnS.addEventListener("click", function(){
+
+        let liburua = liburuak.find(liburu => liburu.isbn === isbn.value);
+        if(liburua){
+            i= liburuak.indexOf(liburua);
+            setLiburua();
+        }else{
+            isbnLabel.style.display = "inline";
+            setTimeout(() => {
+                isbnLabel.style.display = "none";
+            }, 5000);
+        }
+    })
+
+ }
